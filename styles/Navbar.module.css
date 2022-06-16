@@ -1,0 +1,60 @@
+.Navbar {
+  background-color: #fff;
+  width: 100%;
+  height: 64px;
+  display: flex;
+}
+
+.LogoContainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+}
+
+.SmallLogo {
+  display: none;
+}
+
+.LogoContainer > img {
+  height: 50%;
+}
+
+.SearchBarContainer {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 32px;
+}
+
+.SearchBar {
+  font-size: 16px;
+  padding: 8px;
+  width: calc(100% - 64px);
+  max-width: 512px;
+  border: 1px solid #ccc;
+}
+
+.SearchButton {
+  background-color: #f4f4f4;
+  width: 64px;
+  height: 36px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-left: none;
+}
+
+@media (max-width: 500px) {
+  .LogoContainer {
+    width: 80px;
+  }
+  .BigLogo {
+    display: none;
+  }
+  .SmallLogo {
+    display: block;
+  }
+}

@@ -1,0 +1,23 @@
+.Container {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button, .activeButton {
+  background-color: #ddd;
+  border: 0;
+  padding: 8px 12px 8px 12px;
+  margin: 2px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button:hover, .activeButton {
+  background-color: #F6A82F;
+}
