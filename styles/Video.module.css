@@ -45,14 +45,28 @@
 }
 .Likes, .Dislikes {
   padding: 4px;
-  font-size: 22px;
+  font-size: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  color: #444;
+  transition: 0.2s filter, 0.2s color;
+}
+.Likes {
+  
 }
 .Dislikes {
   margin-left: 8px;
   margin-right: 8px;
+}
+.Likes:hover {
+  filter: drop-shadow(0 0 2px #082);
+  color: #0f0;
+}
+.Dislikes:hover {
+  filter: drop-shadow(0 0 2px #d02);
+  color: #f00;
 }
 .Likes > span, .Dislikes > span {
   font-size: 16px;
@@ -105,13 +119,19 @@
   margin-bottom: 64px;
 }
 .WriteCommentContainer > textarea {
+  height: 64px;
   flex: 1;
   margin-left: 8px;
   resize: none;
   font-size: 16px;
-  padding: 4px;
-  border: 1px solid #bbb;
-  background-color: #e2e2e2;
+  padding: 8px;
+  border: 0;
+  background-color: #ddd;
+  transition: 0.2s box-shadow;
+  outline: 0;
+}
+.WriteCommentContainer > textarea:focus {
+  box-shadow: 0 0 8px #0008;
 }
 .CommentAvatar {
   width: 48px;

@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+
 import styles from '../styles/Pagination.module.css';
 import { useEffect, useState } from 'react';
 import { VideosPerPage } from '../src/helpers/ApiConfig';
@@ -9,8 +10,8 @@ interface IVideosProps {
 };
 
 const Pagination: NextPage<IVideosProps> = (props: IVideosProps) => {
-  let [ buttons, updateButtons ]: any = useState([ ]);
-  let [ currentPage, updateCurrentPage ]: any = useState(1);
+  let [ buttons, updateButtons ] = useState<number[ ]>([ ]);
+  let [ currentPage, updateCurrentPage ] = useState<number>(1);
 
   useEffect(() => {
     const _buttons = [ ];

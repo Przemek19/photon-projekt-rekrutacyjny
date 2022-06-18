@@ -1,25 +1,8 @@
-import styles from '../../styles/SmallPreview.module.css';
 import type { NextPage } from 'next';
+import type { IVideo } from '../../src/helpers/interfaces/Video';
+
+import styles from '../../styles/SmallPreview.module.css';
 import { millisecondsToTime } from '../../src/helpers/utils';
-
-interface IVideoAttributes {
-  youTubeVideoId: string,
-  title: string,
-  description: string,
-  fullUrl: string,
-  viewCount: string,
-  likeCount: string,
-  dislikeCount: string,
-  publishedDate: string,
-  createdAt: string,
-  updatedAt: string,
-};
-
-interface IVideo {
-  id: number,
-  attributes: IVideoAttributes,
-  title: string,
-};
 
 interface IVideoProps {
   video: IVideo,
@@ -29,7 +12,6 @@ const SmallPreview: NextPage<IVideoProps> = (props: IVideoProps) => {
   if (!props.video) {
     props.video = {
       id: 0,
-      title: '',
       attributes: {
         youTubeVideoId: '',
         title: '',
@@ -54,7 +36,7 @@ const SmallPreview: NextPage<IVideoProps> = (props: IVideoProps) => {
     <div className={ styles.Container } >
       <a href={`/video/${ props.video.id }`}>
         <div className={ styles.Miniature }>
-          <img className={ styles.VideoPreviewImage } src={`https://img.youtube.com/vi/${ attributes.youTubeVideoId }/hqdefault.jpg`} alt={ props.video.title } />
+          <img className={ styles.VideoPreviewImage } src={`https://img.youtube.com/vi/${ attributes.youTubeVideoId }/hqdefault.jpg`} alt={ attributes.title } />
         </div>
 
         <div className={ styles.VideoInfo }>

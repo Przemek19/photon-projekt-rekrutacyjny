@@ -1,7 +1,9 @@
+import type { NextPage } from 'next';
+import type { IVideo } from '../src/helpers/interfaces/Video';
+
 import { ApiUrl } from '../src/helpers/ApiConfig';
 import { VideosPerPage } from '../src/helpers/ApiConfig';
 import axios from 'axios';
-import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 
 import styles from '../styles/Home.module.css';
@@ -10,12 +12,12 @@ import VideoPreview from './videopreview';
 import Pagination from './pagination';
 
 const VideoList: NextPage = () => {
-  let [ videos, setVideos ]: any = useState([ ]);
-  let [ searchedVideos, setSearchedVideos ]: any = useState([ ]);
-  let [ videosToShow, setVideosToShow ]: any = useState([ ]);
+  let [ videos, setVideos ] = useState<IVideo[ ]>([ ]);
+  let [ searchedVideos, setSearchedVideos ] = useState<IVideo[ ]>([ ]);
+  let [ videosToShow, setVideosToShow ] = useState<IVideo[ ]>([ ]);
 
   const loadVideos = () => {
-    axios.get(`${ApiUrl}/videos`).then((response: any) => {
+    axios.get(`${ApiUrl}/videos`).then((response) => {
       setVideos(response.data.data);
       setSearchedVideos(response.data.data);
       setVideosToShow(response.data.data.slice(0, VideosPerPage));
@@ -35,7 +37,7 @@ const VideoList: NextPage = () => {
   }, [ videos ]);
 
   const search = (query: string) => {
-    const queryVideos: Object[ ] = [ ];
+    const queryVideos: IVideo[ ] = [ ];
     query = query.toLowerCase();
     for (let i in videos) {
       if (videos[i].attributes.title.toLowerCase().search(query) !== -1) {
@@ -61,7 +63,7 @@ const VideoList: NextPage = () => {
       <div className={ styles.VideoList }>
         {
           videosToShow
-            .map((video: any) =>
+            .map((video: IVideo) =>
               <VideoPreview key={ video.id } video={ video } />
             )
         }

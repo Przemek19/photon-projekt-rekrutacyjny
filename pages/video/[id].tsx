@@ -1,7 +1,10 @@
+import type { NextPage } from 'next';
+import type { IVideo } from '../../src/helpers/interfaces/Video';
+import type { IComment } from '../../src/helpers/interfaces/Comment';
+
 import { ApiUrl } from '../../src/helpers/ApiConfig';
 import { dateToText } from '../../src/helpers/utils';
 import axios from 'axios';
-import type { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import styles from '../../styles/Video.module.css';
 import Navbar from '../navbar';
@@ -11,38 +14,25 @@ import SmallPreview from './smallpreview';
 import Comment from './comment';
 import Image from 'next/image';
 
-interface IComment {
-	id: number,
-	author: string,
-	avatar: string,
-	content: string,
-	timestamp: number,
-};
-
-const VideoPage: NextPage = (props: any) => {
-	const sendComment = (e: any) => {
-		if (e.key === 'Enter' && e.target.value.length > 0) {
-			const newComments = [ ...comments ];
-			newComments.unshift({
-				id: newComments.length,
-				author: 'Anonimowy',
-				avatar: '/user.png',
-				content: e.target.value,
-				timestamp: Date.now(),
-			});
-			updateCommentValue('');
-			updateComments(newComments);
+const VideoPage: NextPage = () => {	
+	const [ videoData, updateVideoData ] = useState<IVideo>({
+		id: 0,
+		attributes: {
+			youTubeVideoId: '',
+			title: '',
+			description: '',
+			fullUrl: '',
+			viewCount: '',
+			likeCount: '',
+			dislikeCount: '',
+			publishedDate: '',
+			createdAt: '',
+			updatedAt: '',
 		}
-	}
-
-	const updateCommentHandler = (e: any) => {
-		updateCommentValue(e.target.value);
-	}
-	
-	const [ videoData, updateVideoData ]: any = useState({ });
-	const [ commentValue, updateCommentValue ]: any = useState('');
-	const [ videos, setVideos ]: any = useState([ ]);
-	const [ comments, updateComments ]: any = useState([
+	});
+	const [ commentValue, updateCommentValue ] = useState<string>('');
+	const [ videos, setVideos ] = useState<IVideo[ ]>([ ]);
+	const [ comments, updateComments ] = useState<IComment[ ]>([
 		{
 			id: 0,
 			author: 'Pevo',
@@ -65,6 +55,28 @@ const VideoPage: NextPage = (props: any) => {
 			timestamp: 1655401676743,
 		},
 	]);
+
+	const sendComment = (e: any) => {
+		console.log(e.target.value)
+		if (e.key === 'Enter' && e.target.value.replace(/ /g, '').replace(/\n/, '').replace(/\r/g, '').length > 1) {
+			const newComments = [ ...comments ];
+			newComments.unshift({
+				id: newComments.length,
+				author: 'Anonimowy',
+				avatar: '/user.png',
+				content: e.target.value,
+				timestamp: Date.now(),
+			});
+			updateCommentValue('');
+			updateComments(newComments);
+		} else {
+			e.preventDefault();
+		}
+	}
+
+	const updateCommentHandler = (e: any) => {
+		updateCommentValue(e.target.value);
+	}
 
 	useEffect(() => {
 		const _comments = comments.sort((a: IComment, b: IComment) => {
@@ -98,7 +110,7 @@ const VideoPage: NextPage = (props: any) => {
 				<div className={ styles.Container }>
 					<div className={ styles.LeftContainer }>
 						<div className={ styles.FrameContainer }>
-							<iframe src={`https://www.youtube.com/embed/${ videoData.attributes.youTubeVideoId }`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className={ styles.Frame }></iframe>
+							<iframe src={`https://www.youtube.com/embed/${ videoData.attributes.youTubeVideoId }?autoplay=1`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className={ styles.Frame }></iframe>
 						</div>
 						<span className={ styles.Title}>{ videoData.attributes.title }</span>
 						<div className={ styles.ViewsAndLikesContainer }>

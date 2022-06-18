@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+
 import styles from '../styles/Navbar.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +13,7 @@ interface ISearchProps {
 const Navbar: NextPage<ISearchProps> = (props: ISearchProps) => {
   const [ searchQuery, updateSearchQuery ] = useState('');
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (props.search) props.search(e.target.value);
     updateSearchQuery(e.target.value);
   }

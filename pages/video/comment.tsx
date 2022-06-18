@@ -1,15 +1,9 @@
-import styles from '../../styles/Video.module.css';
 import type { NextPage } from 'next';
+import type { IComment } from '../../src/helpers/interfaces/Comment';
+
+import styles from '../../styles/Video.module.css';
 import { millisecondsToTime } from '../../src/helpers/utils';
 import Image from 'next/image';
-
-interface IComment {
-	id: number,
-	author: string,
-	avatar: string,
-	content: string,
-	timestamp: number,
-};
 
 interface ICommentDataProps {
   data: IComment,
