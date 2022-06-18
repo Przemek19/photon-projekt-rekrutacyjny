@@ -35,16 +35,20 @@
   padding: 8px;
   width: calc(100% - 64px);
   max-width: 512px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
+  border-radius: 2px 0 0 2px;
 }
 
 .SearchButton {
-  background-color: #f4f4f4;
+  background-color: #ddd;
   width: 64px;
   height: 36px;
   font-size: 18px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-left: none;
+  border-radius: 0 2px 2px 0;
+  color: #555;
+  cursor: pointer;
 }
 
 @media (max-width: 500px) {
