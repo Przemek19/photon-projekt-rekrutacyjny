@@ -67,12 +67,20 @@
   width: 32px;
   height: 32px;
   align-self: center;
-  margin-right: 16px;
+  margin-right: 28px;
   background-color: transparent;
   border: 0;
   color: #fa0;
-  font-size: 28px;
+  font-size: 32px;
   cursor: pointer;
+
+  svg {
+    transition: 0.4s transform, 0.4s filter;
+    &:hover {
+      transform: rotate(360deg);
+      filter: drop-shadow(0 0 2px #fa0);
+    }
+  }
 }
 
 @media (max-width: 500px) {
