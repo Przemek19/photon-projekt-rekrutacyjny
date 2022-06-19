@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import type { IComment } from '../../src/interfaces/Comment';
 
-import styles from '../../styles/Video.module.css';
+import styles from '../../styles/Video.module.scss';
 import { millisecondsToTime } from '../../src/helpers/utils';
 import Image from 'next/image';
 
@@ -14,7 +14,7 @@ const Comment: NextPage<ICommentDataProps> = (props: ICommentDataProps) => {
   return (
     <div className={ styles.CommentContainer }>
       <div className={ styles.CommentAvatarContainer }>
-        <Image src={ props.data.avatar } width={48} height={48} />
+        <Image src={ props.data.avatar } width={48} height={48} alt="comment author" />
       </div>
       <div className={ styles.CommentData }>
         <div className={ styles.CommentTop }>

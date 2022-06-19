@@ -8,27 +8,26 @@
 }
 
 .button, .activeButton {
-  background-color: #ddd;
+  background-color: var(--background3);
   border: 0;
   padding: 8px 12px 8px 12px;
   font-size: 16px;
   font-weight: 400;
-  color: #444;
+  color: var(--text2);
   cursor: pointer;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid var(--text2);
   transition: 0.2s background-color, 0.2s color;
-}
 
-.button:first-child, .activeButton:first-child {
-  border-radius: 4px 0 0 4px;
-}
-
-.button:last-child, .activeButton:last-child {
-  border-radius: 0 4px 4px 0;
-  border: 0;
+  &:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+    border: 0;
+  }
 }
 
 .button:hover, .activeButton {
-  background-color: #aaa;
-  color: #eee;
+  background-color: var(--background1);
+  color: var(--text1);
 }

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import type { IVideo } from '../src/interfaces/Video';
 
-import styles from '../styles/VideoPreview.module.css';
+import styles from '../styles/VideoPreview.module.scss';
 import { millisecondsToTime } from '../src/helpers/utils';
 
 interface IVideoProps {

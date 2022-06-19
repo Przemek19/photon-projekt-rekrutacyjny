@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import type { IVideo } from '../../src/interfaces/Video';
 import type { IComment } from '../../src/interfaces/Comment';
 
@@ -6,7 +6,7 @@ import { ApiUrl } from '../../src/helpers/ApiConfig';
 import { dateToText } from '../../src/helpers/utils';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import styles from '../../styles/Video.module.css';
+import styles from '../../styles/Video.module.scss';
 import Navbar from '../navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
@@ -14,24 +14,14 @@ import SmallPreview from './smallpreview';
 import Comment from './comment';
 import Image from 'next/image';
 
-const VideoPage: NextPage = () => {	
-	const [ videoData, updateVideoData ] = useState<IVideo>({
-		id: 0,
-		attributes: {
-			youTubeVideoId: '',
-			title: '',
-			description: '',
-			fullUrl: '',
-			viewCount: '',
-			likeCount: '',
-			dislikeCount: '',
-			publishedDate: '',
-			createdAt: '',
-			updatedAt: '',
-		}
-	});
-	const [ commentValue, updateCommentValue ] = useState<string>('');
+interface IVideoProps {
+	video: IVideo,
+};
+
+const VideoPage: NextPage<IVideoProps> = (props: IVideoProps) => {	
+	const videoData = props.video;
 	const [ videos, setVideos ] = useState<IVideo[ ]>([ ]);
+	const [ commentValue, updateCommentValue ] = useState<string>('');
 	const [ comments, updateComments ] = useState<IComment[ ]>([
 		{
 			id: 0,
@@ -56,8 +46,25 @@ const VideoPage: NextPage = () => {
 		},
 	]);
 
+  const [ appearance, setAppearance ] = useState<string | null>('dark');
+
+  useEffect(() => {
+    if (!localStorage.getItem('appearance')) {
+      localStorage.setItem('appearance', 'dark');
+    } else {
+      setAppearance(localStorage.getItem('appearance'));
+    }
+  }, [ ]);
+
+  const updateAppearance = (theme: string) => {
+    setAppearance(theme);
+  }
+
+	useEffect(() => {
+		document.title = props.video.attributes.title
+	}, [ props.video ]);
+
 	const sendComment = (e: any) => {
-		console.log(e.target.value)
 		if (e.key === 'Enter' && e.target.value.replace(/ /g, '').replace(/\n/, '').replace(/\r/g, '').length > 1) {
 			const newComments = [ ...comments ];
 			newComments.unshift({
@@ -85,12 +92,6 @@ const VideoPage: NextPage = () => {
 		updateComments(_comments);
 	}, [ comments ]);
 
-	useEffect(() => {
-		axios.get(`${ApiUrl}/videos${window.location.pathname.replace('/video', '')}`).then(response => {
-			updateVideoData(response.data.data);
-		});
-	}, [ ]);
-
   const loadVideos = () => {
     axios.get(`${ApiUrl}/videos`).then((response: any) => {
       setVideos(response.data.data);
@@ -102,10 +103,10 @@ const VideoPage: NextPage = () => {
   }, [ ]);
 
 	return (
-		<div>
-			<Navbar search={ () => {} } />
+		<div className={ !!appearance ? appearance : 'dark' }>
+			<Navbar search={ () => {} } changeAppearance={ updateAppearance } />
 			{
-				videoData.id &&
+				videoData &&
 				(
 				<div className={ styles.Container }>
 					<div className={ styles.LeftContainer }>
@@ -166,3 +167,11 @@ const VideoPage: NextPage = () => {
 }
 
 export default VideoPage;
+
+export async function getServerSideProps({ req }: any) {
+  const response = await fetch(`${ApiUrl}/videos/${req.url.replace('/video/', '')}`);
+  const data = await response.json();
+  return {
+    props: { video: data.data },
+  };
+}

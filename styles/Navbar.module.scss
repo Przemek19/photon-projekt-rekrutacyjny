@@ -1,8 +1,9 @@
 .Navbar {
-  background-color: #fff;
+  background-color: var(--background1);
   width: 100%;
   height: 64px;
   display: flex;
+  box-shadow: 0 0 8px #0006;
 }
 
 .LogoContainer {
@@ -17,8 +18,10 @@
   display: none;
 }
 
-.LogoContainer > img {
-  height: 50%;
+.LogoContainer {
+  img {
+    height: 50%;
+  }
 }
 
 .SearchBarContainer {
@@ -31,23 +34,40 @@
 }
 
 .SearchBar {
+  background-color: var(--background2);
   font-size: 16px;
+  height: 36px;
   padding: 8px;
   width: calc(100% - 64px);
   max-width: 512px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--background3);
   border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  z-index: 1;
 }
 
 .SearchButton {
-  background-color: #ddd;
+  background-color: var(--background3);
   width: 64px;
   height: 36px;
-  font-size: 18px;
-  border: 1px solid #ddd;
+  font-size: 16px;
+  border: 1px solid var(--background3);
   border-left: none;
   border-radius: 0 2px 2px 0;
   color: #555;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.ChangeAppearance {
+  width: 32px;
+  height: 32px;
+  align-self: center;
+  margin-right: 16px;
+  background-color: transparent;
+  border: 0;
+  color: #fa0;
+  font-size: 28px;
   cursor: pointer;
 }
 

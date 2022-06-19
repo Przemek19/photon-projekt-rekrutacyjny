@@ -3,11 +3,11 @@
   width: calc(20% - 8px);
   margin: 16px 4px 32px 4px;
   box-sizing: border-box;
-}
 
-.Container > a {
-  width: 100%;
-  height: 100%;
+  a {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .VideoPreviewImage {
@@ -20,14 +20,14 @@
   font-weight: 600;
   font-size: 18px;
   width: 100%;
-  color: #222;
+  color: var(--text1);
   margin-bottom: 4px;
 }
 
 .VideoPreviewAuthor, .VideoPreviewInfo {
   display: block;
   width: 100%;
-  color: #666;
+  color: var(--text2);
   padding: 4px 6px 1px 6px;
 }
 

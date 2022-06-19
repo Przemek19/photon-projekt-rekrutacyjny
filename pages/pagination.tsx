@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 
-import styles from '../styles/Pagination.module.css';
+import styles from '../styles/Pagination.module.scss';
 import { useEffect, useState } from 'react';
 import { VideosPerPage } from '../src/helpers/ApiConfig';
 

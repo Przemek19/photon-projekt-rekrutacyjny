@@ -6,15 +6,33 @@ import { VideosPerPage } from '../src/helpers/ApiConfig';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 import Navbar from './navbar';
 import VideoPreview from './videopreview';
 import Pagination from './pagination';
 
 const VideoList: NextPage = () => {
-  let [ videos, setVideos ] = useState<IVideo[ ]>([ ]);
-  let [ searchedVideos, setSearchedVideos ] = useState<IVideo[ ]>([ ]);
-  let [ videosToShow, setVideosToShow ] = useState<IVideo[ ]>([ ]);
+  const [ videos, setVideos ] = useState<IVideo[ ]>([ ]);
+  const [ searchedVideos, setSearchedVideos ] = useState<IVideo[ ]>([ ]);
+  const [ videosToShow, setVideosToShow ] = useState<IVideo[ ]>([ ]);
+
+  const [ appearance, setAppearance ] = useState<string | null>('dark');
+
+  useEffect(() => {
+    if (!localStorage.getItem('appearance')) {
+      localStorage.setItem('appearance', 'dark');
+    } else {
+      setAppearance(localStorage.getItem('appearance'));
+    }
+  }, [ ]);
+
+  const updateAppearance = (theme: string) => {
+    setAppearance(theme);
+  }
+
+  useEffect(() => {
+    document.title = 'Photon Education'
+  }, [ ]);
 
   const loadVideos = () => {
     axios.get(`${ApiUrl}/videos`).then((response) => {
@@ -58,8 +76,8 @@ const VideoList: NextPage = () => {
   }
 
   return (
-    <div className={ styles.Container }>
-      <Navbar search={ search } />
+    <div className={ `${ styles.Container } ${ !!appearance ? appearance : 'dark' }` }>
+      <Navbar search={ search } changeAppearance={ updateAppearance } />
       <div className={ styles.VideoList }>
         {
           videosToShow
