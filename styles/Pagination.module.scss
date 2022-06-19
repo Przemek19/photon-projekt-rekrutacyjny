@@ -30,4 +30,5 @@
 .button:hover, .activeButton {
   background-color: var(--background1);
   color: var(--text1);
+  transition: var(--appearanceChangeSpeed) background-color, var(--appearanceChangeSpeed) color;
 }

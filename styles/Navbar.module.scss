@@ -1,5 +1,6 @@
 .Navbar {
   background-color: var(--background1);
+  transition: var(--appearanceChangeSpeed) background-color;
   width: 100%;
   height: 64px;
   display: flex;
@@ -44,6 +45,8 @@
   border-radius: 2px 0 0 2px;
   box-sizing: border-box;
   z-index: 1;
+  color: var(--text1);
+  transition: var(--appearanceChangeSpeed) background-color, var(--appearanceChangeSpeed) color, var(--appearanceChangeSpeed) border;
 }
 
 .SearchButton {
@@ -57,6 +60,7 @@
   color: #555;
   box-sizing: border-box;
   cursor: pointer;
+  transition: var(--appearanceChangeSpeed) background-color, var(--appearanceChangeSpeed) border;
 }
 
 .ChangeAppearance {

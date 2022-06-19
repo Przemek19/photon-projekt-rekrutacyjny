@@ -1,13 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/": "pages/index.html",
-  "/video/comment": "pages/video/comment.html",
-  "/video/smallpreview": "pages/video/smallpreview.html",
-  "/pagination": "pages/pagination.html",
-  "/videopreview": "pages/videopreview.html",
-  "/navbar": "pages/navbar.html",
-  "/video/[id]": "pages/video/[id].js",
-  "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/_document": "pages/_document.js"
 }

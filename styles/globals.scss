@@ -14,6 +14,10 @@ a {
   box-sizing: border-box;
 }
 
+:root {
+  --appearanceChangeSpeed: 0.3s;
+}
+
 .dark {
   --background1: #181818;
   --background2: #222;

@@ -18,17 +18,20 @@
   display: block;
   margin-bottom: 4px;
   color: var(--text1);
+  transition: var(--appearanceChangeSpeed) color;
 }
 .VideoPreviewAuthor {
   display: block;
   font-size: 14px;
   margin-bottom: 2px;
   color: var(--text2);
+  transition: var(--appearanceChangeSpeed) color;
 }
 .VideoPreviewInfo {
   display: block;
   font-size: 14px;
   color: var(--text2);
+  transition: var(--appearanceChangeSpeed) color;
 }
 
 .Miniature {

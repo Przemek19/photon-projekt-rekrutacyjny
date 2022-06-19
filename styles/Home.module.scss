@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   overflow: auto;
+  transition: var(--appearanceChangeSpeed) background-color;
 }
 
 .VideoList {
