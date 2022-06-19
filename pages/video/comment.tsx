@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import type { IComment } from '../../src/helpers/interfaces/Comment';
+import type { IComment } from '../../src/interfaces/Comment';
 
 import styles from '../../styles/Video.module.css';
 import { millisecondsToTime } from '../../src/helpers/utils';

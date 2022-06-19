@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import type { IVideo } from '../../src/helpers/interfaces/Video';
-import type { IComment } from '../../src/helpers/interfaces/Comment';
+import type { IVideo } from '../../src/interfaces/Video';
+import type { IComment } from '../../src/interfaces/Comment';
 
 import { ApiUrl } from '../../src/helpers/ApiConfig';
 import { dateToText } from '../../src/helpers/utils';

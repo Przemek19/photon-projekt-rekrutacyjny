@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import type { IVideo } from '../src/helpers/interfaces/Video';
+import type { IVideo } from '../src/interfaces/Video';
 
 import { ApiUrl } from '../src/helpers/ApiConfig';
 import { VideosPerPage } from '../src/helpers/ApiConfig';

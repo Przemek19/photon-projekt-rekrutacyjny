@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import type { IVideo } from '../src/helpers/interfaces/Video';
+import type { IVideo } from '../src/interfaces/Video';
 
 import styles from '../styles/VideoPreview.module.css';
 import { millisecondsToTime } from '../src/helpers/utils';
