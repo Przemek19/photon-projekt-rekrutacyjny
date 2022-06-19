@@ -1,86 +1,39 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills-5cd94c89d3acac5f.js"
+    "static/chunks/polyfills.js"
   ],
-  "devFiles": [],
-  "ampDevFiles": [],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
+  "ampDevFiles": [
+    "static/chunks/webpack.js",
+    "static/chunks/amp.js"
+  ],
   "lowPriorityFiles": [
-    "static/d83-XrTOb5THHn_sZWQQa/_buildManifest.js",
-    "static/d83-XrTOb5THHn_sZWQQa/_ssgManifest.js",
-    "static/d83-XrTOb5THHn_sZWQQa/_middlewareManifest.js"
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js",
+    "static/development/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
-      "static/chunks/webpack-9b312e20a4e32339.js",
-      "static/chunks/framework-1f10003e17636e37.js",
-      "static/chunks/main-fc7d2f0e2098927e.js",
-      "static/chunks/cb1608f2-4d89ed1195114956.js",
-      "static/chunks/956-c9dcfbb651428bbb.js",
-      "static/chunks/669-b4a56b7adf507d17.js",
-      "static/css/e643e54f38deee71.css",
-      "static/chunks/pages/index-d3de60bd066c602d.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
-      "static/chunks/webpack-9b312e20a4e32339.js",
-      "static/chunks/framework-1f10003e17636e37.js",
-      "static/chunks/main-fc7d2f0e2098927e.js",
-      "static/css/7f85f283f455bc58.css",
-      "static/chunks/pages/_app-99053f98995a3927.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
     ],
     "/_error": [
-      "static/chunks/webpack-9b312e20a4e32339.js",
-      "static/chunks/framework-1f10003e17636e37.js",
-      "static/chunks/main-fc7d2f0e2098927e.js",
-      "static/chunks/pages/_error-0a004b8b8498208d.js"
-    ],
-    "/navbar": [
-      "static/chunks/webpack-9b312e20a4e32339.js",
-      "static/chunks/framework-1f10003e17636e37.js",
-      "static/chunks/main-fc7d2f0e2098927e.js",
-      "static/chunks/cb1608f2-4d89ed1195114956.js",
-      "static/chunks/956-c9dcfbb651428bbb.js",
-      "static/css/f14b3ff7d5d6c511.css",
-      "static/chunks/pages/navbar-3e4acc8d6d16e9fd.js"
-    ],
-    "/pagination": [
-      "static/chunks/webpack-9b312e20a4e32339.js",
-      "static/chunks/framework-1f10003e17636e37.js",
-      "static/chunks/main-fc7d2f0e2098927e.js",
-      "static/css/87eada694d7448f5.css",
-      "static/chunks/pages/pagination-5d99b168d6637e23.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
     ],
     "/video/[id]": [
-      "static/chunks/webpack-9b312e20a4e32339.js",
-      "static/chunks/framework-1f10003e17636e37.js",
-      "static/chunks/main-fc7d2f0e2098927e.js",
-      "static/chunks/cb1608f2-4d89ed1195114956.js",
-      "static/chunks/956-c9dcfbb651428bbb.js",
-      "static/chunks/669-b4a56b7adf507d17.js",
-      "static/chunks/675-b1c0bfa226b363b1.js",
-      "static/css/a7a0671e7eb908a3.css",
-      "static/chunks/pages/video/[id]-78815518da1fa8c9.js"
-    ],
-    "/video/comment": [
-      "static/chunks/webpack-9b312e20a4e32339.js",
-      "static/chunks/framework-1f10003e17636e37.js",
-      "static/chunks/main-fc7d2f0e2098927e.js",
-      "static/chunks/675-b1c0bfa226b363b1.js",
-      "static/css/337c9bb666f72d31.css",
-      "static/chunks/pages/video/comment-be3b47a301cc2e57.js"
-    ],
-    "/video/smallpreview": [
-      "static/chunks/webpack-9b312e20a4e32339.js",
-      "static/chunks/framework-1f10003e17636e37.js",
-      "static/chunks/main-fc7d2f0e2098927e.js",
-      "static/css/29ae246979ad4079.css",
-      "static/chunks/pages/video/smallpreview-032f7fef1ca9b2d7.js"
-    ],
-    "/videopreview": [
-      "static/chunks/webpack-9b312e20a4e32339.js",
-      "static/chunks/framework-1f10003e17636e37.js",
-      "static/chunks/main-fc7d2f0e2098927e.js",
-      "static/css/310dff61e2a3f4b3.css",
-      "static/chunks/pages/videopreview-9379a9d84b1311e8.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/video/[id].js"
     ]
   },
   "ampFirstPages": []

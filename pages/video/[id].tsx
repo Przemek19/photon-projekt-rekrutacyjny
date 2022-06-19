@@ -4,7 +4,7 @@ import type { IComment } from '../../src/interfaces/Comment';
 
 import { ApiUrl } from '../../src/helpers/ApiConfig';
 import { dateToText } from '../../src/helpers/utils';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
 import styles from '../../styles/Video.module.scss';
 import Navbar from '../navbar';
@@ -81,7 +81,7 @@ const VideoPage: NextPage<IVideoProps> = (props: IVideoProps) => {
 		}
 	}
 
-	const updateCommentHandler = (e: any) => {
+	const updateCommentHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		updateCommentValue(e.target.value);
 	}
 
@@ -93,7 +93,7 @@ const VideoPage: NextPage<IVideoProps> = (props: IVideoProps) => {
 	}, [ comments ]);
 
   const loadVideos = () => {
-    axios.get(`${ApiUrl}/videos`).then((response: any) => {
+    axios.get(`${ApiUrl}/videos`).then((response: AxiosResponse) => {
       setVideos(response.data.data);
     });
   }
@@ -145,7 +145,7 @@ const VideoPage: NextPage<IVideoProps> = (props: IVideoProps) => {
 						<div className={ styles.CommentsContainer }>
 								{
 									comments
-										.map((comment: any) => 
+										.map((comment: IComment) => 
 											<Comment key={ comment.id } data={ comment } />
 										)
 								}
@@ -154,7 +154,7 @@ const VideoPage: NextPage<IVideoProps> = (props: IVideoProps) => {
 					<div className={styles.RightContainer}>
 						{
 							videos
-								.map((video: any) =>
+								.map((video: IVideo) =>
 									<SmallPreview key={ video.id } video={ video } />
 								)
 						}
