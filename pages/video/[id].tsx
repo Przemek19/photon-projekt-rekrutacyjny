@@ -94,7 +94,13 @@ const VideoPage: NextPage<IVideoProps> = (props: IVideoProps) => {
 
   const loadVideos = () => {
     axios.get(`${ApiUrl}/videos`).then((response: AxiosResponse) => {
-      setVideos(response.data.data);
+			const _videos = response.data.data;
+			for (let i in _videos) {
+				if (videoData.id === _videos[i].id) {
+					_videos.splice(i, 1);
+				}
+			}
+      setVideos(_videos);
     });
   }
 
