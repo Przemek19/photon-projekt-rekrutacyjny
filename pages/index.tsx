@@ -42,6 +42,17 @@ const VideoList: NextPage = () => {
     });
   }
 
+  const search = (query: string) => {
+    const queryVideos: IVideo[ ] = [ ];
+    query = query.toLowerCase();
+    for (let i in videos) {
+      if (videos[i].attributes.title.toLowerCase().search(query) !== -1) {
+        queryVideos.push(videos[i]);
+      }
+    }
+    setSearchedVideos(queryVideos);
+  }
+
   useEffect(() => {
     loadVideos();
   }, [ ]);
@@ -53,17 +64,6 @@ const VideoList: NextPage = () => {
       search(query);
     }
   }, [ videos ]);
-
-  const search = (query: string) => {
-    const queryVideos: IVideo[ ] = [ ];
-    query = query.toLowerCase();
-    for (let i in videos) {
-      if (videos[i].attributes.title.toLowerCase().search(query) !== -1) {
-        queryVideos.push(videos[i]);
-      }
-    }
-    setSearchedVideos(queryVideos);
-  }
 
   useEffect(() => {
     changePage(1);
